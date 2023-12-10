@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Search</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+            <ui:composition template="/template.xhtml">
+                <ui:define name="body">
+
+                    <p:layout fullPage="true">
+                        <p:panel>
+                            <p:panelGrid columns="2">
+                                <p:panelGrid columns="1">
+                                    <h:form id="formFilter">
+                                        <p:panel header="Rechercher par employe">
+                                            <p:panelGrid columns="2">
+                                                <p:outputLabel value="Employe"/>
+                                                <p:selectOneMenu value="#{employeController.items}" required="true" id="filterEmploye" >
+                                                    <f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true"/>
+                                                    <f:selectItems value="#{employeController.items}" var="e"
+                                                                   itemLabel="#{e.nom}" itemValue="#{e.id}"/>
+                                                    <p:ajax event="change" listener="#{employeController.salleLoad()}" update=":formData:datalist" />
+                                                </p:selectOneMenu>
+
+
+                                            </p:panelGrid>
+
+                                            <p:button onclick="#{employeController.salleLoad()}" value="Filter"></p:button>
+                                            <p:button onclick="#{employeController.loadMachineByEmployees()}" value="Filter"></p:button>
+
+                                        </p:panel>
+                                    </h:form>
+
+                                    <h:form id="formData">
+
+                                        <p:growl id="messages" showDetail="true"/>
+
+
+<!--                                        <p:dataTable var="m" value="#{employeController.machines}" 
+                                                     id="datalist" editable="true" paginator="true" 
+                                                     rows="10" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                                     rowsPerPageTemplate="5,10,15" 
+                                                     selectionMode="single" selection="#{employeController.machine}"
+                                                     rowKey="#{m.id}"  widgetVar="MachineList" >-->
+
+                                        <p:dataTable value="#{machineController.items}" var="m" 
+                                                     id="datalist" editable="true" 
+                                                     paginator="true" rows="10" 
+                                                     paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                                     rowsPerPageTemplate="5,10,15" 
+                                                     selectionMode="single" selection="#{machineController.selected}"
+                                                     rowKey="#{m.id}"  widgetVar="MachineList"
+                                                     >
+
+
+                                            <f:facet name="header">
+                                                <p:panel>
+                                                    <h:outputFormat value="Search:" style="margin: 10px" />
+                                                    <p:inputText style="margin:0px; width:150px" id="globalFilter" onkeyup="PF('MachineList').filter()" placeholder="Enter Employe Name" />
+                                                </p:panel>
+
+                                            </f:facet>
+
+                                            <p:ajax event="rowEdit" listener="#{machineController.onEdit}" update=":formData:messages" />
+                                            <p:ajax event="rowEditCancel" listener="#{machineBean.onCancel}" update=":formData:messages" />
+
+                                            <p:column headerText="Marque" style="width:30%">
+                                                <p:cellEditor>
+                                                    <f:facet name="output">
+                                                        <h:outputText value="#{m.marque}" />
+                                                    </f:facet>
+                                                    <f:facet name="input">
+                                                        <p:inputText value="#{m.marque}" style="width:100%"/>
+                                                    </f:facet>
+                                                </p:cellEditor>
+                                            </p:column>
+
+                                            <p:column headerText="Reference" style="width:20%">
+                                                <p:cellEditor>
+                                                    <f:facet name="output">
+                                                        <h:outputText value="#{m.reference}" />
+                                                    </f:facet>
+                                                    <f:facet name="input">
+                                                        <p:inputText value="#{m.reference}" style="width:100%"/>
+                                                    </f:facet>
+                                                </p:cellEditor>
+                                            </p:column>
+
+                                            <p:column headerText="Prix" style="width:20%">
+                                                <p:cellEditor>
+                                                    <f:facet name="output">
+                                                        <h:outputText value="#{m.prix}" />
+                                                    </f:facet>
+                                                    <f:facet name="input">
+                                                        <p:inputText value="#{m.prix}" style="width:100%" />
+                                                    </f:facet>
+                                                </p:cellEditor>
+                                            </p:column>
+
+                                            <p:column headerText="Date d'achat" style="width:20%">
+                                                <p:cellEditor>
+                                                    <f:facet name="output">
+                                                        <p:calendar value="#{m.dateAchat}" pattern="yyyy-MM-dd" disabled="true"/>
+                                                    </f:facet>
+                                                    <f:facet name="input">
+                                                        <p:calendar value="#{m.dateAchat}" pattern="yyyy-MM-dd"/>
+                                                    </f:facet>
+                                                </p:cellEditor>
+                                            </p:column>
+
+                                            <p:column headerText="Employe" style="width:20%" >
+                                                <p:cellEditor>
+                                                    <f:facet name="output">
+                                                        <h:outputText value="#{m.employe.nom}" />
+                                                    </f:facet>
+                                                    <f:facet name="input">
+                                                        <p:inputText value="#{m.employe.nom}"/>
+                                                    </f:facet>
+
+                                                </p:cellEditor>
+                                            </p:column>
+
+
+                                        </p:dataTable>
+                                    </h:form>
+                                </p:panelGrid>
+                            </p:panelGrid>
+                        </p:panel>    
+                    </p:layout>
+
+                </ui:define>
+            </ui:composition>
+        </h:body>
+
+    </f:view>
+</html>

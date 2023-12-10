@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Dashboard</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/template.xhtml">
+
+            <ui:define name="title">
+                <h:outputText value="#{bundle.ListEmployeTitle}"></h:outputText>
+            </ui:define>
+
+            <ui:define name="body">
+
+
+                <p:panel header="Statistiques" style="margin:10px;" class="flex-box">
+                    <!--<p:barChart value="#{machineController.createBarModel()}"  title="Nombre des machine par employe" style="width : 500px; height: 500px"/>-->
+                </p:panel>
+                <p:panel header="" style="margin:10px;" class="flex-box">
+                    <!--<p:lineChart value="#{machineController.createBarYear()}"  title="Nombre des machine acquises par année" style="width : 1000px; height: 500px"/>-->
+                    <!--<p:chart type="line" model="#{employeController.initBarModel()}"  style="width : 500px; height: 500px"/>-->
+                    <p:barChart  value="#{employeController.initBarModel()}"  style="width : 500px; height: 500px"/>
+
+                </p:panel>
+
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

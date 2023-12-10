@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <!--<f:view contentType="text/html" locale="#{param.lng}">-->
+    <h:head>
+        <title><ui:insert name="title">Factory Manager</ui:insert></title>
+        <h:outputStylesheet library="css" name="jsfcrud.css"/>
+        <h:outputScript library="js" name="jsfcrud.js"/>
+    </h:head>
+
+    <h:body id="body">
+
+
+        <p:growl id="growl" life="3000" />
+
+        <p:layout fullPage="true"  >
+            <p:layoutUnit position="north" size="65" header="#{bundle.AppName}"></p:layoutUnit>
+            <p:layoutUnit position="west" size="195" header="Factory Management">
+
+                <h:form id="menuForm" class="flex-box" style="flex-direction:column;"  >
+                    <p:menu class="flex-box">
+                        <p:menuitem value="#{bundle.Home}" outcome="/faces/web/home.xhtml" icon="ui-icon-home"/>
+                        <p:submenu label="#{bundle.Maintenance}">
+                            <p:menuitem value="Employes" outcome="/faces/web/employe/List.xhtml" />
+                            <p:menuitem value="Machines" outcome="/faces/web/machine/List.xhtml" />
+                            <p:menuitem value="#{bundle.Menu}" outcome="/faces/web/machineEmploye" />
+                        </p:submenu>
+                    </p:menu>
+                </h:form>
+                <h:form class="flex-box" style="flex-direction:column;">
+                    <h:outputText value="#{bundle.Language}"></h:outputText>
+
+                    <p:selectOneMenu required="true" value="#{langController.lang}" onchange="submit()" valueChangeListener="#{langController.countryLocalChanged}" >
+                        <!--                                <f:selectItem  itemLabel="English" itemValue="en" />
+                                                        <f:selectItem itemLabel="Frensh" itemValue="fr"/>-->
+                        <f:selectItems value="#{langController.countries}"></f:selectItems>
+                        <!--<p:ajax event="change" listener="#{langController.defineLang}" update=":body"/>-->
+                    </p:selectOneMenu>
+                </h:form>
+
+                <!--                <h:form>
+                                    <h:commandLink action="#{langController.change('en')}" value="English" />
+                                    <br/>
+                                    <h:commandLink action="#{langController.change('fr')}" value="French" />
+                                </h:form>
+                
+                                <h:form>
+                                    <h:commandLink value="EN" action="#{langController.defineLang}">
+                                        <f:param name="lng" value="en"/>
+                                    </h:commandLink>
+                                    &nbsp;
+                                    <h:commandLink value="FR" action="#{langController.defineLang}">
+                                        <f:param name="lng" value="fr"/>
+                                    </h:commandLink>
+                                </h:form>-->
+
+
+            </p:layoutUnit>
+
+            <p:layoutUnit position="south" size="60" class="flex-box">
+                <ui:insert name="footer"/>
+                <p:panel style="margin-top: 10px;" footer="CrudApp With EJB  JSF" class="flex-box">
+                    <h:outputText value="&#169; 2023 - All rights reserved by AKHMIM Abdelilah"/>
+                </p:panel>
+
+
+            </p:layoutUnit>
+
+            <p:layoutUnit position="center" header="#{bundle.Hello}">
+                <ui:insert name="body"/>
+            </p:layoutUnit>
+            <!--            <p:layoutUnit position="north" header="Traduction" >
+                            <p:outputLabel value="Tranduction"/>
+                            
+                        </p:layoutUnit>-->
+
+            <p:layoutUnit position="north" header="Bienvenue, #{authController.username}!">
+                <ui:insert name="admin"/>
+                <!--<h2>Bienvenue, #{authController.username}!</h2>-->
+                <h:form>
+                    <p>
+                        <h:commandLink value="Déconnexion" action="#{authController.logout}" />
+                    </p>
+                </h:form>
+            </p:layoutUnit>
+        </p:layout>
+
+    </h:body>
+    <!--</f:view>-->
+</html>
