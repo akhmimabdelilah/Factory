@@ -39,25 +39,10 @@
                         <!--                                <f:selectItem  itemLabel="English" itemValue="en" />
                                                         <f:selectItem itemLabel="Frensh" itemValue="fr"/>-->
                         <f:selectItems value="#{langController.countries}"></f:selectItems>
-                        <!--<p:ajax event="change" listener="#{langController.defineLang}" update=":body"/>-->
                     </p:selectOneMenu>
                 </h:form>
 
-                <!--                <h:form>
-                                    <h:commandLink action="#{langController.change('en')}" value="English" />
-                                    <br/>
-                                    <h:commandLink action="#{langController.change('fr')}" value="French" />
-                                </h:form>
-                
-                                <h:form>
-                                    <h:commandLink value="EN" action="#{langController.defineLang}">
-                                        <f:param name="lng" value="en"/>
-                                    </h:commandLink>
-                                    &nbsp;
-                                    <h:commandLink value="FR" action="#{langController.defineLang}">
-                                        <f:param name="lng" value="fr"/>
-                                    </h:commandLink>
-                                </h:form>-->
+
 
 
             </p:layoutUnit>
@@ -74,14 +59,11 @@
             <p:layoutUnit position="center" header="#{bundle.Hello}">
                 <ui:insert name="body"/>
             </p:layoutUnit>
-            <!--            <p:layoutUnit position="north" header="Traduction" >
-                            <p:outputLabel value="Tranduction"/>
-                            
-                        </p:layoutUnit>-->
+
 
             <p:layoutUnit position="north" header="Bienvenue, #{authController.username}!">
                 <ui:insert name="admin"/>
-                <!--<h2>Bienvenue, #{authController.username}!</h2>-->
+                <h2>Bienvenue, #{authController.username}!</h2>
                 <h:form>
                     <p>
                         <h:commandLink value="Déconnexion" action="#{authController.logout}" />

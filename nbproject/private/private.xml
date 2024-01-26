@@ -3,28 +3,32 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Z:/JEE/Ctrl/Rappel/src/java/domaines/MachineFacade.java</file>
             <file>file:/Z:/JEE/Ctrl/Rappel/src/java/domaines/EmployeFacade.java</file>
-            <file>file:/Z:/JEE/Ctrl/Rappel/src/java/entities/Machine.java</file>
-            <file>file:/Z:/JEE/Ctrl/Rappel/src/java/services/UserController.java</file>
             <file>file:/Z:/JEE/Ctrl/Rappel/web/web/machineEmploye.xhtml</file>
             <file>file:/Z:/JEE/Ctrl/Rappel/web/web/machine/List.xhtml</file>
-            <file>file:/Z:/JEE/Ctrl/Rappel/web/web/machine/Edit.xhtml</file>
             <file>file:/Z:/JEE/Ctrl/Rappel/web/web/home.xhtml</file>
             <file>file:/Z:/JEE/Ctrl/Rappel/src/java/Bundle.properties</file>
+            <file>file:/Z:/JEE/Ctrl/Rappel/web/web/machine/View.xhtml</file>
+            <file>file:/Z:/JEE/Ctrl/Rappel/src/conf/persistence.xml</file>
+            <file>file:/Z:/JEE/Ctrl/Rappel/web/login.xhtml</file>
+            <file>file:/Z:/JEE/Ctrl/Rappel/src/java/domaines/MachineFacade.java</file>
+            <file>file:/Z:/JEE/Ctrl/Rappel/src/java/entities/Machine.java</file>
+            <file>file:/Z:/JEE/Ctrl/Rappel/web/web/machine/Edit.xhtml</file>
+            <file>file:/Z:/JEE/Ctrl/Rappel/web/WEB-INF/web.xml</file>
             <file>file:/Z:/JEE/Ctrl/Rappel/web/template.xhtml</file>
             <file>file:/Z:/JEE/Ctrl/Rappel/src/java/services/MachineController.java</file>
             <file>file:/Z:/JEE/Ctrl/Rappel/src/java/domaines/AbstractFacade.java</file>
-            <file>file:/Z:/JEE/Ctrl/Rappel/web/web/machine/View.xhtml</file>
             <file>file:/Z:/JEE/Ctrl/Rappel/src/java/Bundle_en.properties</file>
             <file>file:/Z:/JEE/Ctrl/Rappel/src/java/entities/Employe.java</file>
+            <file>file:/Z:/JEE/Ctrl/Rappel/src/java/services/AuthBean.java</file>
             <file>file:/Z:/JEE/Ctrl/Rappel/web/index.html</file>
             <file>file:/Z:/JEE/Ctrl/Rappel/web/WEB-INF/faces-config.xml</file>
             <file>file:/Z:/JEE/Ctrl/Rappel/src/java/services/LangBean.java</file>
-            <file>file:/Z:/JEE/Ctrl/Rappel/web/web/login.xhtml</file>
+            <file>file:/Z:/JEE/Ctrl/Rappel/web/welcome.xhtml</file>
             <file>file:/Z:/JEE/Ctrl/Rappel/web/web/machine/Create.xhtml</file>
+            <file>file:/Z:/JEE/Ctrl/Rappel/src/java/domaines/AuthFacade.java</file>
+            <file>file:/Z:/JEE/Ctrl/Rappel/src/java/entities/User.java</file>
             <file>file:/Z:/JEE/Ctrl/Rappel/src/java/Bundle_fr.properties</file>
-            <file>file:/Z:/JEE/Ctrl/Rappel/src/conf/persistence.xml</file>
             <file>file:/Z:/JEE/Ctrl/Rappel/web/web/img/rajol.png</file>
             <file>file:/Z:/JEE/Ctrl/Rappel/src/java/services/EmployeController.java</file>
         </group>
